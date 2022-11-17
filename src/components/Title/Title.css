@@ -1,0 +1,68 @@
+.title {
+    max-width: 1440px;
+    padding: 100px 0 0;
+    margin: 0 auto; 
+}
+
+.title__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 100px 0 100px;
+}
+
+.tile__wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.title__wrap {
+    display: flex;
+}
+
+.title__title {
+    font-family: 'Source Code Pro';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 60px;
+    color: #FFFFFF;
+    width: 435px;
+    text-align: start;
+    margin: 0 0 15px 0;
+}
+
+.title__subtitle {
+    font-family: 'Source Code Pro';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 23px;
+    color: #828282;
+    margin: 0 0 35px 0;
+    text-align: start;
+}
+
+.title__button {
+    width: 143px;
+    height: 42px;
+    background-color: #F96F34;
+    margin: 0 10px 0 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    font-family: 'Source Code Pro';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.title__button:last-of-type {
+    margin: 0;
+    background-color: #171717;
+    border: 1px solid #FFFFFF;
+}

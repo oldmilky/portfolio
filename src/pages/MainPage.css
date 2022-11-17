@@ -1,0 +1,40 @@
+.mainpage {
+    background-image: url(../images/triangles.svg);
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 30px 0 0;
+    background-repeat: no-repeat;
+}
+
+.box__text {
+    font-family: 'Source Code Pro';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+#fp-nav ul li:hover a.active span,
+#fp-nav ul li a.active span,
+.fp-slidesNav ul li:hover a.active span,
+.fp-slidesNav ul li a.active span {
+    background-color: #F96F34;
+}
+
+fp-watermark {
+    display: none !important;
+}
+
+.fp-watermark>a {
+    display: none !important;
+}
+
+.page__background {
+    background-image: url(../images/triangles.svg);
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 30px 0 0;
+    background-repeat: no-repeat;
+}

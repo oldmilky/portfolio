@@ -1,0 +1,74 @@
+.about {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+}
+
+.about__title {
+    font-family: 'Source Code Pro';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 62px;
+    text-align: center;
+    color: #FFFFFF;
+    margin: 0 0 40px;
+}
+
+.about__subtitle {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+    text-align: center;
+    color: #FFFFFF;
+    margin: 0;
+    max-width: 670px;
+}
+
+.about__subtitle:last-of-type {
+    margin: 20px 0 0;
+}
+
+.about__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 50px 0 0;
+}
+
+.about__wrap {
+    border-top: 3px solid #F96F34;
+    border-left: 3px solid #F96F34;
+    border-radius: 5px;
+    padding: 60px;
+}
+
+.about__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #1A1A1A;
+    width: 185px;
+    height: 130px;
+    border-radius: 8px;
+    margin-right: 150px;
+}
+
+.about__wrapper:last-of-type {
+    margin: 0;
+}
+
+.about__wrapper_title {
+    font-family: 'Source Code Pro';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 26px;
+    color: #535353;
+    margin: 0;
+}

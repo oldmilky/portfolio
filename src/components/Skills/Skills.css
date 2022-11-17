@@ -1,0 +1,77 @@
+.skills {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 100px 0 100px;
+    background-image: url(../../images/skills__background.svg);
+    background-repeat: no-repeat;
+}
+
+.skills__title {
+    font-family: 'Source Code Pro';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 62px;
+    text-align: center;
+    color: #FFFFFF;
+    margin: 0 0 50px 0;
+}
+
+.skills__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    background-color: #171717;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.skills__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 100px 0 0;
+}
+
+.skills__wrapper:last-of-type {
+    margin: 20px 0 0;
+}
+
+.skills__text {
+    font-family: 'Source Code Pro';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 26px;
+    color: #4F4F4F;
+    margin: 30px 0 0;
+}
+
+.skills__subtitle {
+    font-family: 'Source Code Pro';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 31px;
+    text-align: center;
+    color: #FFFFFF;
+    margin: 40px 0 50px;
+}
+
+.skills__text_mini {
+    font-family: 'Source Code Pro';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    color: #616161;
+    margin: 0 50px 0 0;
+}
+
+.skills__text_mini:last-of-type {
+    margin: 0;
+}
