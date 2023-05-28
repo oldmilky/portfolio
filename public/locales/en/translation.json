@@ -1,0 +1,72 @@
+{
+    "header": {
+        "logo": "RODYA",
+        "projects": "projects",
+        "aboutme": "about me",
+        "contacts": "contacts"
+    },
+    "title": {
+        "hello": "HI, I AM",
+        "me": "rodion strelkov",
+        "frontend": "FRONTEND WEB-DEVELOPER"
+    },
+    "services": {
+        "my": "my",
+        "services": "services",
+        "every": "every",
+        "everyday": "DAY - IS A NEW CHALLENGE",
+        "text": "INITIALLY I WAS ONLY DOING FRONTEND DEVELOPMENT, BUT OVER TIME THIS BECAME INSUFFICIENT FOR FULL-FLEDGED LARGE APPLICATIONS, SO I STUDIED WEB DESIGN AND BACKEND DEVELOPMENT. SINCE THEN, EVERY DAY I LEARN NEW THINGS, PRACTICE MY KNOWLEDGE ON MY PET PROJECTS, AND THEN APPLY THESE SKILLS TO REAL PROJECTS.",
+        "development": "development",
+        "web": "web",
+        "frontend": "frontend",
+        "backend": "backend",
+        "design": "design"
+    },
+    "aboutme": {
+        "about": "about",
+        "me": "me",
+        "text1": "My experience in web development is more than",
+        "text2": "years, during this time I have developed and completed more than",
+        "text3": "unique works.",
+        "text4": "I have studied the",
+        "latest": "latest",
+        "text5": "technologies, thanks to which I can write web applications without reboots and with instant response, of any complexity.",
+        "text6": "With the",
+        "technologies": "technologies",
+        "text7": "that I use, you can see below.",
+        "download": "download"
+    },
+    "tech": {
+        "key": "key",
+        "technologies": "technologies",
+        "skills": "ADDITIONAL SKILLS"
+    },
+    "contacts": {
+        "get": "get",
+        "touch": "in touch",
+        "connect": "LET'S CONNECT",
+        "send": "SEND ME A MESSAGE",
+        "name": "NAME",
+        "email": "EMAIL",
+        "title": "TITLE",
+        "message": "MESSAGE",
+        "button": "send message"
+    },
+    "footer": {
+        "reserved": "All Rights Reserved.",
+        "email": "Email"
+    },
+    "nav": {
+        "home": "home"
+    },
+    "projects": {
+        "work": "WORK PROJECTS",
+        "educational": "EDUCATIONAL PROJECTS"
+    },
+    "project": {
+        "desc": "DESCRIPTION",
+        "done": "It was done",
+        "view": "view",
+        "images": "screenshots"
+    }
+}
