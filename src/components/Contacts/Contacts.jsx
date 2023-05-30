@@ -1,6 +1,9 @@
-import { motion } from "framer-motion";
-import { useState } from "react";
+import emailjs from "@emailjs/browser";
+import { AnimatePresence, motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
+import checkbox from "../../assets/images/checkbox.svg";
+import closeButton from "../../assets/images/close.svg";
 import discord from "../../assets/images/discord.svg";
 import github from "../../assets/images/github.svg";
 import linkedin from "../../assets/images/linkedin.svg";
@@ -9,6 +12,44 @@ import "./Contacts.css";
 
 function Contacts() {
   const { t } = useTranslation();
+
+  const [clickText, setClickText] = useState(false);
+
+  const form = useRef();
+
+  const [modalSuccessful, setModalSuccessful] = useState(false);
+
+  useEffect(() => {
+    if (modalSuccessful) {
+      const timeoutId = setTimeout(() => {
+        setModalSuccessful(false);
+      }, 5000);
+
+      return () => clearTimeout(timeoutId);
+    }
+  }, [modalSuccessful]);
+
+  const sendEmail = e => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_lrzx6nr",
+        "template_gq3mo58",
+        form.current,
+        "LwJ0o4BtnQVsZvPOM"
+      )
+      .then(
+        result => {
+          console.log(result.text);
+          setModalSuccessful(true);
+          form.current.reset();
+        },
+        error => {
+          console.log(error.text);
+        }
+      );
+  };
 
   const topToDownAnimation = {
     hidden: {
@@ -34,7 +75,25 @@ function Contacts() {
     }),
   };
 
-  const [clickText, setClickText] = useState(false);
+  const dropInPopup = {
+    hidden: {
+      y: -100,
+      opacity: 0,
+    },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.3,
+        damping: 25,
+        stiffness: 500,
+      },
+    },
+    exit: {
+      y: 0,
+      opacity: 0,
+    },
+  };
 
   return (
     <motion.section
@@ -156,7 +215,11 @@ function Contacts() {
             >
               {t("contacts.send")}
             </motion.h2>
-            <div className="contacts__send_wrap">
+            <form
+              className="contacts__send_wrap"
+              ref={form}
+              onSubmit={sendEmail}
+            >
               <motion.div
                 className="contacts__send_wrapper"
                 custom={3.2}
@@ -167,12 +230,16 @@ function Contacts() {
                   transition={{ easeInOut: "linear" }}
                   className="contacts__input contacts__input_name"
                   placeholder={t("contacts.name")}
+                  type="text"
+                  name="user_name"
                 />
                 <motion.input
                   whileTap={{ scale: 0.93 }}
                   transition={{ easeInOut: "linear" }}
                   className="contacts__input contacts__input_email"
                   placeholder={t("contacts.email")}
+                  type="email"
+                  name="user_email"
                 />
               </motion.div>
               <motion.input
@@ -182,6 +249,8 @@ function Contacts() {
                 variants={topToDownAnimation}
                 className="contacts__input contacts__input_title"
                 placeholder={t("contacts.title")}
+                name="message1"
+                type="text"
               />
               <motion.div
                 className="contacts__inputs"
@@ -190,24 +259,65 @@ function Contacts() {
                 whileTap={{ scale: 0.95 }}
                 transition={{ easeInOut: "linear" }}
               >
-                <input
+                <textarea
                   className="contacts__input contacts__input_message"
                   placeholder={t("contacts.message")}
+                  name="message2"
                 />
               </motion.div>
-              <motion.button
+              <motion.input
                 className="contacts__button"
                 custom={4.1}
                 variants={downToTopAnimation}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 transition={{ easeInOut: "linear" }}
-              >
-                {t("contacts.button")}
-              </motion.button>
-            </div>
+                type="submit"
+                value={t("contacts.button")}
+                placeholder={t("contacts.button")}
+              />
+            </form>
           </div>
         </div>
+        <AnimatePresence initial={false} onExitComplete={() => null}>
+          {modalSuccessful && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              <motion.div
+                className="alert"
+                variants={dropInPopup}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+              >
+                <div className="alert__container succesful">
+                  <div className="alert__wrapper">
+                    <img
+                      className="alert__checkbox"
+                      src={checkbox}
+                      alt="checkbox"
+                    />
+                    <div className="alert__wrap">
+                      <h1 className="alert__title">{t("contacts.alert")}</h1>
+                      <h2 className="alert__subtitle">
+                        {t("contacts.alert2")}
+                      </h2>
+                    </div>
+                  </div>
+                  <img
+                    className="alert__close"
+                    src={closeButton}
+                    alt="close"
+                    onClick={() => setModalSuccessful(false)}
+                  />
+                </div>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </motion.section>
   );

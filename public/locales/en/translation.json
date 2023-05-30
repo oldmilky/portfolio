@@ -50,7 +50,9 @@
         "email": "EMAIL",
         "title": "TITLE",
         "message": "MESSAGE",
-        "button": "send message"
+        "button": "send message",
+        "alert": "Form sent successfully!",
+        "alert2": "Expect a reply within 12 hours"
     },
     "footer": {
         "reserved": "All Rights Reserved.",

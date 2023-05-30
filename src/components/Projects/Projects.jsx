@@ -58,8 +58,8 @@ function Projects() {
         whileTap={{ scale: 0.95 }}
         transition={{
           easeInOut: "linear",
-          delay: i >= 3 ? (i - 2) * 0.4 : 0,
-          duration: 0.4,
+          delay: i >= 3 ? (i - 2) * 0.3 : 0,
+          duration: 0.3,
         }}
       >
         <div className="projects__project">
