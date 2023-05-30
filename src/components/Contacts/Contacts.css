@@ -327,3 +327,7 @@
     box-shadow: 0 4px 12px rgba(233, 116, 109, 0.4);
     cursor: pointer;
 }
+
+.contacts__link {
+    text-decoration: none;
+}

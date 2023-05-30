@@ -4,8 +4,7 @@ import { Link } from "react-router-dom";
 import arrow from "../../assets/images/arrow.svg";
 import "./Nav.css";
 
-function Nav() {
-
+function Nav({ title }) {
   const { t } = useTranslation();
 
   const leftToRightAnimation = {
@@ -66,7 +65,7 @@ function Nav() {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
-              PROJECT
+              {title}
             </motion.p>
           </Link>
         </motion.div>

@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import discord from "../../assets/images/discord.svg";
 import github from "../../assets/images/github.svg";
@@ -33,6 +34,8 @@ function Contacts() {
     }),
   };
 
+  const [clickText, setClickText] = useState(false);
+
   return (
     <motion.section
       className="contacts"
@@ -59,19 +62,30 @@ function Contacts() {
               {t("contacts.connect")}
             </motion.h2>
             <div className="contacts__connect">
-              <motion.div
-                className="contacts__connect_wrap"
-                custom={1.8}
-                variants={topToDownAnimation}
-                whileHover={{ scale: 1.07 }}
-                whileTap={{ scale: 0.9 }}
-                transition={{ easeInOut: "linear" }}
+              <a
+                className="contacts__link"
+                href="https://t.me/rodion914"
+                target="_blank"
+                rel="noreferrer"
               >
-                <div className="contacts__connect_wrapper">
-                  <img className="contacts__logo" src={telegram} alt="linked" />
-                </div>
-                <p className="contacts__text">TELEGRAM</p>
-              </motion.div>
+                <motion.div
+                  className="contacts__connect_wrap"
+                  custom={1.8}
+                  variants={topToDownAnimation}
+                  whileHover={{ scale: 1.07 }}
+                  whileTap={{ scale: 0.9 }}
+                  transition={{ easeInOut: "linear" }}
+                >
+                  <div className="contacts__connect_wrapper">
+                    <img
+                      className="contacts__logo"
+                      src={telegram}
+                      alt="linked"
+                    />
+                  </div>
+                  <p className="contacts__text">TELEGRAM</p>
+                </motion.div>
+              </a>
               <motion.div
                 className="contacts__connect_wrap"
                 custom={2.1}
@@ -79,38 +93,59 @@ function Contacts() {
                 whileHover={{ scale: 1.07 }}
                 whileTap={{ scale: 0.9 }}
                 transition={{ easeInOut: "linear" }}
+                onClick={() => setClickText(!clickText)}
               >
                 <div className="contacts__connect_wrapper">
                   <img className="contacts__logo" src={discord} alt="linked" />
                 </div>
-                <p className="contacts__text">DISCORD</p>
+                <p className="contacts__text">
+                  {clickText ? "rod9#0520" : "discord"}
+                </p>
               </motion.div>
-              <motion.div
-                className="contacts__connect_wrap"
-                custom={2.4}
-                variants={topToDownAnimation}
-                whileHover={{ scale: 1.07 }}
-                whileTap={{ scale: 0.9 }}
-                transition={{ easeInOut: "linear" }}
+              <a
+                className="contacts__link"
+                href="https://github.com/oldmilky"
+                target="_blank"
+                rel="noreferrer"
               >
-                <div className="contacts__connect_wrapper">
-                  <img className="contacts__logo" src={github} alt="linked" />
-                </div>
-                <p className="contacts__text">GITHUB</p>
-              </motion.div>
-              <motion.div
-                className="contacts__connect_wrap"
-                custom={2.7}
-                variants={topToDownAnimation}
-                whileHover={{ scale: 1.07 }}
-                whileTap={{ scale: 0.9 }}
-                transition={{ easeInOut: "linear" }}
+                <motion.div
+                  className="contacts__connect_wrap"
+                  custom={2.4}
+                  variants={topToDownAnimation}
+                  whileHover={{ scale: 1.07 }}
+                  whileTap={{ scale: 0.9 }}
+                  transition={{ easeInOut: "linear" }}
+                >
+                  <div className="contacts__connect_wrapper">
+                    <img className="contacts__logo" src={github} alt="linked" />
+                  </div>
+                  <p className="contacts__text">GITHUB</p>
+                </motion.div>
+              </a>
+              <a
+                className="contacts__link"
+                href="https://linkedin.com/in/родион-стрелков-959953239"
+                target="_blank"
+                rel="noreferrer"
               >
-                <div className="contacts__connect_wrapper">
-                  <img className="contacts__logo" src={linkedin} alt="linked" />
-                </div>
-                <p className="contacts__text">LINKEDIN</p>
-              </motion.div>
+                <motion.div
+                  className="contacts__connect_wrap"
+                  custom={2.7}
+                  variants={topToDownAnimation}
+                  whileHover={{ scale: 1.07 }}
+                  whileTap={{ scale: 0.9 }}
+                  transition={{ easeInOut: "linear" }}
+                >
+                  <div className="contacts__connect_wrapper">
+                    <img
+                      className="contacts__logo"
+                      src={linkedin}
+                      alt="linked"
+                    />
+                  </div>
+                  <p className="contacts__text">LINKEDIN</p>
+                </motion.div>
+              </a>
             </div>
           </div>
           <div className="contacts__wrapper">

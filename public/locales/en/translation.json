@@ -54,7 +54,7 @@
     },
     "footer": {
         "reserved": "All Rights Reserved.",
-        "email": "Email"
+        "email": "email"
     },
     "nav": {
         "home": "home"
@@ -71,7 +71,7 @@
     },
     "notfound": {
         "text": "Unfortunately the page was not found, you should go back to the home page.",
-        "home": "HOME"
+        "home": "Home"
     },
     "empty": {
         "title": "There was an error :c",

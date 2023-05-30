@@ -27,13 +27,20 @@ function Footer() {
         >
           © 2023 oldmilky. {t("footer.reserved")}
         </motion.h1>
-        <motion.h1
-          className="footer__title"
-          custom={1.5}
-          variants={downToTopAnimation}
+        <a
+          className="footer__link"
+          href="mailto:oldmilky@yandex.kz"
+          target="_blank"
+          rel="noreferrer"
         >
-          {t("footer.email")}: oldmilky@yandex.kz
-        </motion.h1>
+          <motion.h1
+            className="footer__title"
+            custom={1.5}
+            variants={downToTopAnimation}
+          >
+            {t("footer.email")}: oldmilky@yandex.kz
+          </motion.h1>
+        </a>
       </div>
     </motion.footer>
   );
