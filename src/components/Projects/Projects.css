@@ -117,12 +117,9 @@
 
 .projects__project_image {
     background-color: #2A2C2F;
-    transition: opacity 0.3s ease;
     width: 455px;
     height: 313px;
     border-radius: 8px;
-    filter: blur(1.5px);
-    -webkit-filter: blur(1.5px);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -143,6 +140,13 @@
     }
 }
 
+.projects__project_wrap {
+    position:  relative;
+    height: 100%;
+    width: 100%;
+    backdrop-filter: blur(1.5px);
+}
+
 .projects__project_title {
     font-family: 'Montserrat', sans-serif;
     font-style: normal;
@@ -154,14 +158,11 @@
     text-transform: uppercase;
     color: #F4EFE9;
     margin: 0;
-    transition: linear 0.3s;
     position: absolute;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
-    width: 80%;
-    text-align: center;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
 .skeletons {

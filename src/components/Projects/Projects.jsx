@@ -1,9 +1,8 @@
 import { motion } from "framer-motion";
-import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
-// import project2 from "../../assets/images/project2.svg";
 import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { fetchProject } from "../../redux/slices/projectSlice";
 import "./Projects.css";
 import ProjectsEmpty from "./ProjectsEmpty";
@@ -44,34 +43,45 @@ function Projects() {
     <Skeletons key={index} />
   ));
 
-  const projects = items.map((obj, i) => (
-    <motion.div
-      key={obj.id}
-      custom={i}
-      variants={topToDownAnimation}
-      initial={i < 0 ? "visible" : "hidden"}
-      animate="visible"
-      whileHover={{ scale: 1.03 }}
-      whileTap={{ scale: 0.95 }}
-      transition={{
-        easeInOut: "linear",
-        delay: i >= 3 ? (i - 2) * 0.5 : 0,
-        duration: 0.5,
-      }}
-    >
-      <div className="projects__project">
-        <Link className="projects__link" to={`/projects/${obj.id}`}>
-          <div
-            className="projects__project_image"
-            style={{
-              backgroundImage: `url(${obj.image1})`,
-            }}
-          />
-          <p className="projects__project_title">{obj.name}</p>
-        </Link>
-      </div>
-    </motion.div>
-  ));
+  const workProjects = items.filter(project => project.workProject);
+  const educationalProjects = items.filter(project => project.learnProject);
+
+  const renderProjects = projects => {
+    return projects.map((obj, i) => (
+      <motion.div
+        key={obj.id}
+        custom={i}
+        variants={topToDownAnimation}
+        initial={i < 0 ? "visible" : "hidden"}
+        animate="visible"
+        whileHover={{ scale: 1.03 }}
+        whileTap={{ scale: 0.95 }}
+        transition={{
+          easeInOut: "linear",
+          delay: i >= 3 ? (i - 2) * 0.4 : 0,
+          duration: 0.4,
+        }}
+      >
+        <div className="projects__project">
+          <Link className="projects__link" to={`/projects/${obj.id}`}>
+            <div
+              className="projects__project_image"
+              style={{
+                backgroundImage: `url(${obj.image1})`,
+              }}
+            >
+              <div className="projects__project_wrap">
+                <p className="projects__project_title">{obj.name}</p>
+              </div>
+            </div>
+          </Link>
+        </div>
+      </motion.div>
+    ));
+  };
+
+  const workProjectsJSX = renderProjects(workProjects);
+  const educationalProjectsJSX = renderProjects(educationalProjects);
 
   return (
     <motion.section className="projects" initial="hidden" whileInView="visible">
@@ -87,19 +97,21 @@ function Projects() {
         {status === "error" ? (
           <ProjectsEmpty />
         ) : (
-          <div className="projects__wrap">
-            <motion.h2
-              className="projects__subtitle"
-              custom={2}
-              variants={topToDownAnimation}
-            >
-              {t("projects.work")}
-            </motion.h2>
-            <motion.div custom={3} variants={topToDownAnimation}>
-              <div className="projects__wrapper">
-                {status === "loading" ? skeletons : projects}
-              </div>
-            </motion.div>
+          <>
+            <div className="projects__wrap">
+              <motion.h2
+                className="projects__subtitle"
+                custom={2}
+                variants={topToDownAnimation}
+              >
+                {t("projects.work")}
+              </motion.h2>
+              <motion.div custom={3} variants={topToDownAnimation}>
+                <div className="projects__wrapper">
+                  {status === "loading" ? skeletons : workProjectsJSX}
+                </div>
+              </motion.div>
+            </div>
             <div className="projects__wrap">
               <motion.h2
                 className="projects__subtitle"
@@ -108,32 +120,13 @@ function Projects() {
               >
                 {t("projects.educational")}
               </motion.h2>
-              {/* <div className="projects__wrapper">
-              {projectsLearn.map((p, i) => (
-                <motion.div
-                  custom={4 + i * 0.5}
-                  variants={topToDownAnimation}
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.95 }}
-                  transition={{ easeInOut: "linear" }}
-                  key={p.id}
-                >
-                  <div className="projects__project">
-                    <Link className="projects__link" to="/project">
-                      <div
-                        className="projects__project_image"
-                        style={{
-                          backgroundImage: `url(${p.image})`,
-                        }}
-                      />
-                      <p className="projects__project_title">{p.title}</p>
-                    </Link>
-                  </div>
-                </motion.div>
-              ))}
-            </div> */}
+              <motion.div custom={3} variants={topToDownAnimation}>
+                <div className="projects__wrapper">
+                  {status === "loading" ? skeletons : educationalProjectsJSX}
+                </div>
+              </motion.div>
             </div>
-          </div>
+          </>
         )}
       </div>
     </motion.section>

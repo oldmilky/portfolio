@@ -71,7 +71,7 @@ function Project() {
 
   return (
     <>
-      <Nav title={project.name} />
+      <Nav title={project.name} link={`/projects/${id}`} />
       <motion.section
         className="project"
         initial="hidden"

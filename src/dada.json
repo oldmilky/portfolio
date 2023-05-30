@@ -1,11 +1,12 @@
 [
     {
         "id": "shineex",
+        "workProject": true,
         "name": "Shineex",
         "descEN": "Website online store for the sale of in-game software.",
         "descRU": "Сайт интернет-магазин для продажи внутриигрового ПО.",
-        "desc2EN": "The site was developed from scratch, from design to going into production. Layout design in Figma, layout layout with JSX and CSS, slider layout, getting data from the backend and linking between products. Popup rendering, language changes, animation of page appearances and changes. Also added to this is some admin panel via mockAPI.",
-        "desc2RU": "Сайт был разработан с нуля, от дизайна до выхода в продакшн. Дизайн макета в Figma, верстка макета с помощью JSX и CSS, верстка слайдера, получение данных с бэкенда и связь между продуктами. Рендеринг всплывающих окон, смена языка, анимация появления и изменения страниц. Так-же к этому добавлена некая админ панель через mockAPI.",
+        "desc2EN": "The site was developed from scratch, from design to going into production. Layout design in Figma, layout layout with JSX and CSS, slider layout, backend data retrieval and linking between products. Popup rendering, language change, animation of page appearances and changes. Filtering games by buttons, sorting games by popularity. Also, added custom admin panel via mockAPI.",
+        "desc2RU": "Сайт был разработан с нуля, от дизайна до выхода в продакшн. Дизайн макета в Figma, верстка макета с помощью JSX и CSS, верстка слайдера, получение данных с бэкенда и связь между продуктами. Рендеринг всплывающих окон, смена языка, анимация появления и изменения страниц. Фильтрация игр по кнопкам, сортировка игр по популярности. Так-же к этому добавлена некая админ панель через mockAPI.",
         "tech": [
             "HTML",
             "CSS",
@@ -14,6 +15,8 @@
             "Redux Toolkit",
             "React Redux",
             "Framer Motion",
+            "Axios",
+            "MUI",
             "i18n",
             "Figma"
         ],
@@ -22,5 +25,84 @@
         "image1": "https://rodya.kz/static/media/shineex.png",
         "image2": "https://rodya.kz/static/media/shineex2.png",
         "image3": "https://rodya.kz/static/media/shineex3.png"
+    },
+    {
+        "id": "bghack",
+        "name": "BGHack",
+        "workProject": true,
+        "descEN": "Website online store for the sale of in-game software.",
+        "descRU": "Сайт интернет-магазин для продажи внутриигрового ПО.",
+        "desc2EN": "The site was developed from scratch, from design to going into production. Layout design in Figma, layout layout layout with JSX and CSS, getting data from the backend and linking between products. Pop-up rendering, animation of page appearances and changes. Filtering games by buttons, implementation of game search in catalog. Also, added some admin panel via mockAPI.",
+        "desc2RU": "Сайт был разработан с нуля, от дизайна до выхода в продакшн. Дизайн макета в Figma, верстка макета с помощью JSX и CSS, получение данных с бэкенда и связь между продуктами. Рендеринг всплывающих окон, анимация появления и изменения страниц. Фильтрация игр по кнопкам, реализация поиска игры в каталоге. Так-же к этому добавлена некая админ панель через mockAPI.",
+        "tech": [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "React",
+            "Redux Toolkit",
+            "React Redux",
+            "Framer Motion",
+            "Axios",
+            "Lodash",
+            "Figma"
+        ],
+        "linkName": "bghack.xyz",
+        "link": "https://bghack.xyz/",
+        "image1": "https://rodya.kz/static/media/bghack.png",
+        "image2": "https://rodya.kz/static/media/bghack2.png",
+        "image3": "https://rodya.kz/static/media/bghack3.png"
+    },
+    {
+        "id": "mesto",
+        "learnProject": true,
+        "name": "Mesto",
+        "descEN": "Website online store for the sale of in-game software.",
+        "descRU": "Сайт интернет-магазин для продажи внутриигрового ПО.",
+        "desc2EN": "The site was developed from scratch, from design to going into production. Layout design in Figma, layout layout with JSX and CSS, slider layout, backend data retrieval and linking between products. Popup rendering, language change, animation of page appearances and changes. Filtering games by buttons, sorting games by popularity. Also, added custom admin panel via mockAPI.",
+        "desc2RU": "Сайт был разработан с нуля, от дизайна до выхода в продакшн. Дизайн макета в Figma, верстка макета с помощью JSX и CSS, верстка слайдера, получение данных с бэкенда и связь между продуктами. Рендеринг всплывающих окон, смена языка, анимация появления и изменения страниц. Фильтрация игр по кнопкам, сортировка игр по популярности. Так-же к этому добавлена некая админ панель через mockAPI.",
+        "tech": [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "React",
+            "Redux Toolkit",
+            "React Redux",
+            "Framer Motion",
+            "Axios",
+            "MUI",
+            "i18n",
+            "Figma"
+        ],
+        "linkName": "shineex.xyz",
+        "link": "https://shineex.xyz/",
+        "image1": "https://rodya.kz/static/media/shineex.png",
+        "image2": "https://rodya.kz/static/media/shineex2.png",
+        "image3": "https://rodya.kz/static/media/shineex3.png"
+    },
+    {
+        "id": "teamder",
+        "learnProject": true,
+        "name": "Teamder teamder",
+        "descEN": "Website online store for the sale of in-game software.",
+        "descRU": "Сайт интернет-магазин для продажи внутриигрового ПО.",
+        "desc2EN": "The site was developed from scratch, from design to going into production. Layout design in Figma, layout layout layout with JSX and CSS, getting data from the backend and linking between products. Pop-up rendering, animation of page appearances and changes. Filtering games by buttons, implementation of game search in catalog. Also, added some admin panel via mockAPI.",
+        "desc2RU": "Сайт был разработан с нуля, от дизайна до выхода в продакшн. Дизайн макета в Figma, верстка макета с помощью JSX и CSS, получение данных с бэкенда и связь между продуктами. Рендеринг всплывающих окон, анимация появления и изменения страниц. Фильтрация игр по кнопкам, реализация поиска игры в каталоге. Так-же к этому добавлена некая админ панель через mockAPI.",
+        "tech": [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "React",
+            "Redux Toolkit",
+            "React Redux",
+            "Framer Motion",
+            "Axios",
+            "Lodash",
+            "Figma"
+        ],
+        "linkName": "bghack.xyz",
+        "link": "https://bghack.xyz/",
+        "image1": "https://rodya.kz/static/media/bghack.png",
+        "image2": "https://rodya.kz/static/media/bghack2.png",
+        "image3": "https://rodya.kz/static/media/bghack3.png"
     }
 ]
