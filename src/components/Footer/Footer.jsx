@@ -7,7 +7,7 @@ function Footer() {
 
   const downToTopAnimation = {
     hidden: {
-      y: 50,
+      y: -50,
       opacity: 0,
     },
     visible: custom => ({

@@ -11,7 +11,6 @@ import "./Header.css";
 import "./i18next";
 
 function Header() {
-  
   const [menuActive, setMenuActive] = useState(false);
   const [listActive, setListActive] = useState(false);
 
@@ -33,19 +32,18 @@ function Header() {
 
   const navigate = useNavigate();
 
-
   const handleAboutMeClick = () => {
-    if (window.location.pathname !== '/') {
-      navigate('/');
+    if (window.location.pathname !== "/") {
+      navigate("/");
       setTimeout(() => {
-        scroller.scrollTo('aboutme', {
+        scroller.scrollTo("aboutme", {
           smooth: true,
           offset: 0,
           duration: 500,
         });
       }, 100);
     }
-    setMenuActive(false)
+    setMenuActive(false);
   };
 
   const topToDownAnimation = {
@@ -105,7 +103,16 @@ function Header() {
       <div className="header__container">
         <motion.div custom={1} variants={topToDownAnimation}>
           <NavLink className="header__link" to="/">
-            <p className="header__logo">{t("header.logo")} dev</p>
+            <motion.div
+              className="header__logo"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              transition={{ easeInOut: "linear" }}
+            >
+              <p className="header__logo_text">
+                <span className="header__logo_span">R.</span> dev
+              </p>
+            </motion.div>
           </NavLink>
         </motion.div>
         <div className="header__wrap">

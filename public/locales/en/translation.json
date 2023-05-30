@@ -68,5 +68,14 @@
         "done": "It was done",
         "view": "view",
         "images": "screenshots"
+    },
+    "notfound": {
+        "text": "Unfortunately the page was not found, you should go back to the home page.",
+        "home": "HOME"
+    },
+    "empty": {
+        "title": "There was an error :c",
+        "subtitle": "Unfortunately, it was not possible to get information about my projects.",
+        "subtitle2": "Try again later, or go to the home page."
     }
 }

@@ -106,7 +106,6 @@
     font-size: 19px;
     line-height: 125.5%;
     letter-spacing: 0.03em;
-    text-transform: uppercase;
     color: #F4EFE9;
     margin: 0;
     max-width: 620px;
@@ -125,8 +124,8 @@
 }
 
 .project__button_tech {
-    border: none;
-    outline: 2px solid #797872;
+    outline: none;
+    border: 2px solid #797872;
     background-color: transparent;
     padding: 7px 10px;
     margin: 0 10px 10px 0;
@@ -195,13 +194,13 @@
 }
 
 .project__image {
-    outline: 2px solid #797872;
+    border: 2px solid #797872;
     border-radius: 8px;
     width: 100%;
 }
 
 .project__image_size:hover .project__image {
-    outline: 2px solid #EB9C73;
+    border: 2px solid #EB9C73;
     transition: linear 0.4s;
 }
 
@@ -212,13 +211,13 @@
 }
 
 .project__image_mini {
-    outline: 2px solid #797872;
+    border: 2px solid #797872;
     border-radius: 8px;
     width: 100%;
 }
 
 .project__image_size-mini:hover .project__image_mini {
-    outline: 2px solid #EB9C73;
+    border: 2px solid #EB9C73;
     transition: linear 0.3s;
 }
 
@@ -272,5 +271,5 @@
     max-height: 100%;
     max-width: 100%;
     border-radius: 10px;
-    outline: 2px solid #797872;
+    border: 2px solid #797872;
 }

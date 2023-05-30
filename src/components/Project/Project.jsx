@@ -1,14 +1,36 @@
+import axios from "axios";
 import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import {
-  default as imagess,
-  default as project3,
-} from "../../assets/images/project3.png";
+import { useParams } from "react-router-dom";
+import Loader from "../Loader/Loader";
 import "./Project.css";
 
 function Project() {
-  const { t } = useTranslation();
+  const [project, setProject] = useState();
+
+  const { id } = useParams();
+
+  useEffect(() => {
+    async function fetchProject() {
+      try {
+        const { data } = await axios.get(
+          "https://63fb029b7a045e192b6151ab.mockapi.io/projects/" + id
+        );
+        setProject(data);
+      } catch (error) {
+        console.log("Ошибка", error);
+      }
+    }
+    fetchProject();
+    window.scrollTo(0, 0);
+  }, [id]);
+
+  const { t, i18n } = useTranslation();
+
+  const [projectPopup, setProjectPopup] = useState(false);
+  const [projectPopup2, setProjectPopup2] = useState(false);
+  const [projectPopup3, setProjectPopup3] = useState(false);
 
   const topToDownAnimation = {
     hidden: {
@@ -21,8 +43,6 @@ function Project() {
       transition: { delay: custom * 0.2 },
     }),
   };
-
-  const [projectPopup, setProjectPopup] = useState(false);
 
   const dropInPopup = {
     hidden: {
@@ -44,6 +64,10 @@ function Project() {
     },
   };
 
+  if (!project) {
+    return <Loader />;
+  }
+
   return (
     <motion.section className="project" initial="hidden" whileInView="visible">
       <div className="project__container">
@@ -52,7 +76,7 @@ function Project() {
           custom={1}
           variants={topToDownAnimation}
         >
-          PROJECT
+          {project.name}
         </motion.h1>
         <div className="project__wrap">
           <div className="project__wrap_text">
@@ -69,7 +93,7 @@ function Project() {
                 custom={1.6}
                 variants={topToDownAnimation}
               >
-                Website store for the sale of in-game software.
+                {i18n.language === "en" ? project.descEN : project.descRU}
               </motion.p>
             </div>
 
@@ -86,11 +110,7 @@ function Project() {
                 custom={2.2}
                 variants={topToDownAnimation}
               >
-                The site was developed from scratch from design to go into
-                production. Layout design in Figma, layout layout, slider
-                layout, getting data from the backend and linking between
-                products, rendering popups, language change, animations of page
-                appearance and change.
+                {i18n.language === "en" ? project.desc2EN : project.desc2RU}
               </motion.p>
             </div>
 
@@ -108,15 +128,11 @@ function Project() {
                 custom={2.8}
                 variants={topToDownAnimation}
               >
-                <button className="project__button_tech">HTML</button>
-                <button className="project__button_tech">CSS</button>
-                <button className="project__button_tech">JavaScript</button>
-                <button className="project__button_tech">React</button>
-                <button className="project__button_tech">Redux Toolkit</button>
-                <button className="project__button_tech">React-Redux</button>
-                <button className="project__button_tech">Framer motion</button>
-                <button className="project__button_tech">i18n</button>
-                <button className="project__button_tech">Figma</button>
+                {project.tech.map(t => (
+                  <button key={t} className="project__button_tech">
+                    {t}
+                  </button>
+                ))}
               </motion.div>
             </div>
 
@@ -130,7 +146,7 @@ function Project() {
               </motion.h2>
               <motion.a
                 className="project__text_link"
-                href="https://asdf.com/"
+                href={project.link}
                 target="_blank"
                 rel="noreferrer"
                 custom={3.4}
@@ -139,7 +155,7 @@ function Project() {
                 whileTap={{ scale: 0.9 }}
                 transition={{ easeInOut: "linear" }}
               >
-                BGHACK.XYZ
+                {project.linkName}
               </motion.a>
             </div>
           </div>
@@ -162,7 +178,7 @@ function Project() {
               >
                 <img
                   className="project__image"
-                  src={project3}
+                  src={project.image1}
                   alt="project3"
                   onClick={() => setProjectPopup(true)}
                 />
@@ -178,9 +194,9 @@ function Project() {
                 >
                   <img
                     className="project__image_mini"
-                    src={project3}
+                    src={project.image2}
                     alt="project3"
-                    onClick={() => setProjectPopup(true)}
+                    onClick={() => setProjectPopup2(true)}
                   />
                 </motion.div>
                 <motion.div
@@ -193,9 +209,9 @@ function Project() {
                 >
                   <img
                     className="project__image_mini"
-                    src={project3}
+                    src={project.image3}
                     alt="project3"
-                    onClick={() => setProjectPopup(true)}
+                    onClick={() => setProjectPopup3(true)}
                   />
                 </motion.div>
               </div>
@@ -222,7 +238,61 @@ function Project() {
               >
                 <img
                   className="project-popup__image"
-                  src={imagess}
+                  src={project.image1}
+                  alt={"ssss"}
+                />
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+        <AnimatePresence initial={false} onExitComplete={() => null}>
+          {projectPopup2 && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className={
+                projectPopup2 ? "project-popup__opened" : "project-popup"
+              }
+              onClick={() => setProjectPopup2(false)}
+            >
+              <motion.div
+                onClick={e => e.stopPropagation()}
+                variants={dropInPopup}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+              >
+                <img
+                  className="project-popup__image"
+                  src={project.image2}
+                  alt={"ssss"}
+                />
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+        <AnimatePresence initial={false} onExitComplete={() => null}>
+          {projectPopup3 && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className={
+                projectPopup3 ? "project-popup__opened" : "project-popup"
+              }
+              onClick={() => setProjectPopup3(false)}
+            >
+              <motion.div
+                onClick={e => e.stopPropagation()}
+                variants={dropInPopup}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+              >
+                <img
+                  className="project-popup__image"
+                  src={project.image3}
                   alt={"ssss"}
                 />
               </motion.div>
