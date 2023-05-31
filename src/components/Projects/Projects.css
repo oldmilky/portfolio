@@ -47,6 +47,34 @@
     background-clip: text;
 }
 
+.projects__title_text {
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 125.5%;
+    text-align: center;
+    letter-spacing: 0.03em;
+    color: #797872;
+    margin: 30px auto 0;
+    max-width: 850px;
+}
+
+.projects__title_link {
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 125.5%;
+    text-align: start;
+    letter-spacing: 0.03em;
+    color: #F4EFE9;
+    margin: 0;
+    padding: 0 0 5px 0;
+    /* border-bottom: 2px solid #F4EFE9; */
+}
+
 .projects__subtitle {
     font-family: 'Montserrat', sans-serif;
     font-style: normal;

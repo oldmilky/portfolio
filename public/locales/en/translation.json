@@ -61,7 +61,9 @@
     },
     "projects": {
         "work": "FAVOURITE PROJECTS TO ORDER",
-        "educational": "FAVORITE STUDY PROJECTS"
+        "educational": "FAVORITE STUDY PROJECTS",
+        "text": "On this page, I've collected my favorite projects that I'd like to showcase. However, you can find much more of my work on my",
+        "text2": "page."
     },
     "project": {
         "desc": "DESCRIPTION",

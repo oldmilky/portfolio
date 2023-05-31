@@ -96,12 +96,24 @@ function Projects() {
       <div className="projects__container">
         <motion.h1
           className="projects__title"
-          // custom={1}
+          custom={1}
           variants={topToDownAnimation}
         >
           {t("services.my")}{" "}
           <span className="projects__span">{t("header.projects")}</span>
         </motion.h1>
+        <motion.h2 className="projects__title_text" custom={1} variants={topToDownAnimation}>
+          {t("projects.text")}{" "}
+          <a
+            className="projects__title_link"
+            href="https://github.com/oldmilky"
+            target="_blank"
+            rel="noreferrer"
+          >
+            GitHub
+          </a>{" "}
+          {t("projects.text2")}
+        </motion.h2>
         {status === "error" ? (
           <ProjectsEmpty />
         ) : (
