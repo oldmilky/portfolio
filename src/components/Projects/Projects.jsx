@@ -39,7 +39,10 @@ function Projects() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch]);
 
-  const skeletons = [...new Array(1)].map((_, index) => (
+  const workSkeletons = [...new Array(7)].map((_, index) => (
+    <Skeletons key={index} />
+  ));
+  const educationalSkeletons = [...new Array(3)].map((_, index) => (
     <Skeletons key={index} />
   ));
 
@@ -54,28 +57,33 @@ function Projects() {
         variants={topToDownAnimation}
         initial={i < 0 ? "visible" : "hidden"}
         animate="visible"
-        whileHover={{ scale: 1.03 }}
-        whileTap={{ scale: 0.95 }}
         transition={{
           easeInOut: "linear",
           delay: i >= 3 ? (i - 2) * 0.3 : 0,
           duration: 0.3,
         }}
       >
-        <div className="projects__project">
-          <Link className="projects__link" to={`/projects/${obj.id}`}>
-            <div
-              className="projects__project_image"
-              style={{
-                backgroundImage: `url(${obj.image1})`,
-              }}
-            >
-              <div className="projects__project_wrap">
-                <p className="projects__project_title">{obj.name}</p>
+        <motion.div
+          className="projects__project_tap"
+          whileHover={{ scale: 1.03 }}
+          whileTap={{ scale: 0.95 }}
+          transition={{ easeInOut: "linear" }}
+        >
+          <div className="projects__project">
+            <Link className="projects__link" to={`/projects/${obj.id}`}>
+              <div
+                className="projects__project_image"
+                style={{
+                  backgroundImage: `url(${obj.image1})`,
+                }}
+              >
+                <div className="projects__project_wrap">
+                  <p className="projects__project_title">{obj.name}</p>
+                </div>
               </div>
-            </div>
-          </Link>
-        </div>
+            </Link>
+          </div>
+        </motion.div>
       </motion.div>
     ));
   };
@@ -108,7 +116,7 @@ function Projects() {
               </motion.h2>
               <motion.div custom={3} variants={topToDownAnimation}>
                 <div className="projects__wrapper">
-                  {status === "loading" ? skeletons : workProjectsJSX}
+                  {status === "loading" ? workSkeletons : workProjectsJSX}
                 </div>
               </motion.div>
             </div>
@@ -120,9 +128,11 @@ function Projects() {
               >
                 {t("projects.educational")}
               </motion.h2>
-              <motion.div custom={3} variants={topToDownAnimation}>
+              <motion.div custom={4} variants={topToDownAnimation}>
                 <div className="projects__wrapper">
-                  {status === "loading" ? skeletons : educationalProjectsJSX}
+                  {status === "loading"
+                    ? educationalSkeletons
+                    : educationalProjectsJSX}
                 </div>
               </motion.div>
             </div>

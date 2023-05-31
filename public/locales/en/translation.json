@@ -50,9 +50,7 @@
         "email": "EMAIL",
         "title": "TITLE",
         "message": "MESSAGE",
-        "button": "send message",
-        "alert": "Form sent successfully!",
-        "alert2": "Expect a reply within 12 hours"
+        "button": "send message"
     },
     "footer": {
         "reserved": "All Rights Reserved.",
@@ -62,14 +60,15 @@
         "home": "home"
     },
     "projects": {
-        "work": "WORK PROJECTS",
-        "educational": "EDUCATIONAL PROJECTS"
+        "work": "FAVOURITE PROJECTS TO ORDER",
+        "educational": "FAVORITE STUDY PROJECTS"
     },
     "project": {
         "desc": "DESCRIPTION",
         "done": "It was done",
         "view": "view",
-        "images": "screenshots"
+        "images": "screenshots",
+        "time": "due date"
     },
     "notfound": {
         "text": "Unfortunately the page was not found, you should go back to the home page.",
@@ -79,5 +78,13 @@
         "title": "There was an error :c",
         "subtitle": "Unfortunately, it was not possible to get information about my projects.",
         "subtitle2": "Try again later, or go to the home page."
+    },
+    "alert": {
+        "alert": "Form sent successfully!",
+        "alert2": "Expect a reply within 12 hours",
+        "alert3": "I'm so sorry!",
+        "alert4": "You cannot view the project at this time",
+        "alert5": "Oops! Something went wrong.",
+        "alert6": "It is not possible to send a message at this time"
     }
 }

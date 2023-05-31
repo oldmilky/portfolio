@@ -8,6 +8,7 @@ import discord from "../../assets/images/discord.svg";
 import github from "../../assets/images/github.svg";
 import linkedin from "../../assets/images/linkedin.svg";
 import telegram from "../../assets/images/telegram.svg";
+import wrong from "../../assets/images/wrong.svg";
 import "./Contacts.css";
 
 function Contacts() {
@@ -29,6 +30,18 @@ function Contacts() {
     }
   }, [modalSuccessful]);
 
+  const [modalWrong, setModalWrong] = useState(false);
+
+  useEffect(() => {
+    if (modalWrong) {
+      const timeoutId = setTimeout(() => {
+        setModalWrong(false);
+      }, 5000);
+
+      return () => clearTimeout(timeoutId);
+    }
+  }, [modalWrong]);
+
   const sendEmail = e => {
     e.preventDefault();
 
@@ -46,6 +59,7 @@ function Contacts() {
           form.current.reset();
         },
         error => {
+          setModalSuccessful(true);
           console.log(error.text);
         }
       );
@@ -301,9 +315,9 @@ function Contacts() {
                       alt="checkbox"
                     />
                     <div className="alert__wrap">
-                      <h1 className="alert__title">{t("contacts.alert")}</h1>
+                      <h1 className="alert__title">{t("alert.alert")}</h1>
                       <h2 className="alert__subtitle">
-                        {t("contacts.alert2")}
+                        {t("alert.alert2")}
                       </h2>
                     </div>
                   </div>
@@ -318,6 +332,43 @@ function Contacts() {
             </motion.div>
           )}
         </AnimatePresence>
+        <AnimatePresence initial={false} onExitComplete={() => null}>
+            {modalWrong && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+              >
+                <motion.div
+                  className="alert"
+                  variants={dropInPopup}
+                  initial="hidden"
+                  animate="visible"
+                  exit="exit"
+                >
+                  <div className="alert__container wrong">
+                    <div className="alert__wrapper">
+                      <img
+                        className="alert__checkbox"
+                        src={wrong}
+                        alt="wrong"
+                      />
+                      <div className="alert__wrap">
+                        <h1 className="alert__title">{t("alert.alert3")}</h1>
+                        <h2 className="alert__subtitle">{t("alert.alert4")}</h2>
+                      </div>
+                    </div>
+                    <img
+                      className="alert__close"
+                      src={closeButton}
+                      alt="close"
+                      onClick={() => setModalWrong(false)}
+                    />
+                  </div>
+                </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>
       </div>
     </motion.section>
   );

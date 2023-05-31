@@ -3,6 +3,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
+import closeButton from "../../assets/images/close.svg";
+import wrong from "../../assets/images/wrong.svg";
 import Loader from "../Loader/Loader";
 import Nav from "../Nav/NavProject";
 import "./Project.css";
@@ -32,6 +34,18 @@ function Project() {
   const [projectPopup, setProjectPopup] = useState(false);
   const [projectPopup2, setProjectPopup2] = useState(false);
   const [projectPopup3, setProjectPopup3] = useState(false);
+
+  const [modalWrong, setModalWrong] = useState(false);
+
+  useEffect(() => {
+    if (modalWrong) {
+      const timeoutId = setTimeout(() => {
+        setModalWrong(false);
+      }, 5000);
+
+      return () => clearTimeout(timeoutId);
+    }
+  }, [modalWrong]);
 
   const topToDownAnimation = {
     hidden: {
@@ -143,27 +157,65 @@ function Project() {
                 </motion.div>
               </div>
 
-              <div className="project__wrapper">
-                <motion.h2
-                  className="project__subtitle"
-                  custom={3.1}
-                  variants={topToDownAnimation}
-                >
-                  {t("project.view")}
-                </motion.h2>
-                <motion.a
-                  className="project__text_link"
-                  href={project.link}
-                  target="_blank"
-                  rel="noreferrer"
-                  custom={3.4}
-                  variants={topToDownAnimation}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  transition={{ easeInOut: "linear" }}
-                >
-                  {project.linkName}
-                </motion.a>
+              <div className="project__wrapper_duo">
+                <div className="project__wrapper">
+                  <motion.h2
+                    className="project__subtitle"
+                    custom={3.1}
+                    variants={topToDownAnimation}
+                  >
+                    {t("project.view")}
+                  </motion.h2>
+                  {project.linkWrong === true ? (
+                    <motion.p
+                      className="project__text_link"
+                      custom={3.4}
+                      variants={topToDownAnimation}
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
+                      transition={{ easeInOut: "linear" }}
+                      onClick={() => setModalWrong(true)}
+                    >
+                      {project.linkName}
+                    </motion.p>
+                  ) : (
+                    <motion.a
+                      className="project__text_link"
+                      href={project.link}
+                      target="_blank"
+                      rel="noreferrer"
+                      custom={3.4}
+                      variants={topToDownAnimation}
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
+                      transition={{ easeInOut: "linear" }}
+                    >
+                      {project.linkName}
+                    </motion.a>
+                  )}
+                </div>
+                <div className="project__wrapper">
+                  <motion.h2
+                    className="project__subtitle"
+                    custom={3.1}
+                    variants={topToDownAnimation}
+                  >
+                    {t("project.time")}
+                  </motion.h2>
+                  <motion.p
+                    className="project__text_time"
+                    href={project.link}
+                    target="_blank"
+                    rel="noreferrer"
+                    custom={3.4}
+                    variants={topToDownAnimation}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    transition={{ easeInOut: "linear" }}
+                  >
+                    {i18n.language === "en" ? project.timeEN : project.timeRU}
+                  </motion.p>
+                </div>
               </div>
             </div>
             <div className="project__images">
@@ -302,6 +354,43 @@ function Project() {
                     src={project.image3}
                     alt={"ssss"}
                   />
+                </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+          <AnimatePresence initial={false} onExitComplete={() => null}>
+            {modalWrong && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+              >
+                <motion.div
+                  className="alert"
+                  variants={dropInPopup}
+                  initial="hidden"
+                  animate="visible"
+                  exit="exit"
+                >
+                  <div className="alert__container wrong">
+                    <div className="alert__wrapper">
+                      <img
+                        className="alert__checkbox"
+                        src={wrong}
+                        alt="wrong"
+                      />
+                      <div className="alert__wrap">
+                        <h1 className="alert__title">{t("alert.alert3")}</h1>
+                        <h2 className="alert__subtitle">{t("alert.alert4")}</h2>
+                      </div>
+                    </div>
+                    <img
+                      className="alert__close"
+                      src={closeButton}
+                      alt="close"
+                      onClick={() => setModalWrong(false)}
+                    />
+                  </div>
                 </motion.div>
               </motion.div>
             )}
