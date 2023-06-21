@@ -48,7 +48,7 @@ function Header() {
 
   const topToDownAnimation = {
     hidden: {
-      y: -50,
+      y: -40,
       opacity: 0,
     },
     visible: custom => ({
@@ -60,7 +60,7 @@ function Header() {
 
   const dropInList = {
     hidden: {
-      y: -50,
+      y: -40,
       opacity: 0,
     },
     visible: {
@@ -80,7 +80,7 @@ function Header() {
 
   const dropInMenu = {
     hidden: {
-      x: 50,
+      x: 40,
       opacity: 0,
     },
     visible: {

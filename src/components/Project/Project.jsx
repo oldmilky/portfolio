@@ -49,7 +49,7 @@ function Project() {
 
   const topToDownAnimation = {
     hidden: {
-      y: -50,
+      y: -40,
       opacity: 0,
     },
     visible: custom => ({

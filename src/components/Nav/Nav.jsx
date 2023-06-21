@@ -10,7 +10,7 @@ function Nav() {
 
   const leftToRightAnimation = {
     hidden: {
-      y: -50,
+      y: -40,
       opacity: 0,
     },
     visible: custom => ({

@@ -7,7 +7,7 @@ function Footer() {
 
   const downToTopAnimation = {
     hidden: {
-      y: -50,
+      y: -40,
       opacity: 0,
     },
     visible: custom => ({
@@ -25,7 +25,7 @@ function Footer() {
           custom={1}
           variants={downToTopAnimation}
         >
-          © 2023 oldmilky. {t("footer.reserved")}
+          © 2023 Rodya. {t("footer.reserved")}
         </motion.h1>
         <a
           className="footer__link"
@@ -37,6 +37,9 @@ function Footer() {
             className="footer__title"
             custom={1.5}
             variants={downToTopAnimation}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ easeInOut: "linear" }}
           >
             {t("footer.email")}: oldmilky@yandex.kz
           </motion.h1>

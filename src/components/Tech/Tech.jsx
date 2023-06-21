@@ -14,7 +14,7 @@ function Tech() {
 
   const topToDownAnimation = {
     hidden: {
-      y: -50,
+      y: -40,
       opacity: 0,
     },
     visible: custom => ({
@@ -26,7 +26,7 @@ function Tech() {
 
   const downToTopAnimation = {
     hidden: {
-      y: 50,
+      y: 40,
       opacity: 0,
     },
     visible: custom => ({

@@ -10,7 +10,7 @@ function Title() {
 
   const topToDownAnimation = {
     hidden: {
-      y: -50,
+      y: -40,
       opacity: 0,
     },
     visible: custom => ({
@@ -22,7 +22,7 @@ function Title() {
 
   const downToTopAnimation = {
     hidden: {
-      y: 50,
+      y: 40,
       opacity: 0,
     },
     visible: custom => ({
